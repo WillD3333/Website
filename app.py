@@ -2,9 +2,15 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 from datetime import datetime
 
+
+
 app = Flask(__name__)
 
 DB_NAME = "database.db"
+resolutions = [
+    {"id": 1, "text": "Learn Flask"},
+    {"id": 2, "text": "Exercise regularly"}
+]
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
@@ -51,8 +57,10 @@ def delete_resolution(res_id):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
-
+    return render_template('home.html')
+@app.route('/resolutions')
+def resolutions():
+    return render_template('resolutions.html')
 @app.route('/api/resolutions', methods=['GET'])
 def api_get_resolutions():
     return jsonify(get_resolutions())

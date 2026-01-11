@@ -1,3 +1,8 @@
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const btn = document.querySelector("#start-btn");
 const ul = document.getElementById("resol");
 
@@ -88,14 +93,12 @@ btn.addEventListener("click", async () => {
 
     input.addEventListener("keydown", async (e) => {
         if (e.key === "Enter" && input.value.trim() !== "") {
-            // POST to backend
             const res = await fetch("/api/resolutions", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ text: input.value })
             });
             if (res.ok) {
-                // Reload list from backend
                 loadResolutions();
             }
         }

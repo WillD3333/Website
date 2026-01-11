@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'style.css')}}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename = 'favicon.ico')}}"
+    />
+    <script src="{{ url_for('static', filename = 'app.js') }}" defer></script>
+    <script src="{{ url_for('static', filename = 'style.js') }}" defer></script>
+    <title>Resolutions</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="reference">
+        <a href="{{ url_for('resolutions') }}">
+          <button>Go to Resolutions</button>
+        </a>
+      </div>
+      <div class="progress-counter">
+        <h1>0</h1>
+      </div>
+
+      <div class="progress-bar"></div>
+
+      <div class="scroller">
+        <section class="img1">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV6fEDSPQC2TXEtoEbaals81BhNcNf0PkZ-w&s"
+          />
+          <div class="overlay">
+            <p> Welome to (Title)</p>
+            <p> Write stuff </p>
+          
+          </div>
+        </section>
+        <section class="img2">
+          <img
+            src="https://img-cdn.inc.com/image/upload/f_webp,c_fit,w_1920,q_auto/images/panoramic/shutterstock_318915104_360067.jpg"
+          />
+        </section>
+        <section class="">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvhgrX6d12hbt2fuCsk0t6DcSE8y8RWxZBfQ&s"
+          />
+          <div class="overlay">
+            <h2>Image Title 1</h2>
+            <p>Some description or button here</p>
+            
+          </div>
+        </section>
+        <section class="">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEdvBKOxKqNJQlXirE6xm1CJgSQMK-2X1iew&s"
+          />
+        </section>
+        <section class="">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGOni98wN-lXTayl5Xc3_JnmR86jsWARHlnQ&s"
+          />
+        </section>
+        <section class="">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYm7k_0ef9N3YE0p1shI87w9xjK8SgBtY-WQ&s"
+          />
+        </section>
+        <section class="">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4ADJ0HDnaJDHCCnTwnukpCMCpLlzEo5UfxQ&s"
+          />
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

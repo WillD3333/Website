@@ -1,90 +1,190 @@
+/* ----------------- GLOBAL ----------------- */
 html {
   background-color: antiquewhite;
+  font-family: "Monaco", monospace;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 h1 {
   padding: 5px 15px;
-  margin: 20px 20px;
+  margin: 10px 10px;
   border-radius: 10px;
   color: rgb(64, 147, 224);
   background: linear-gradient(to top, rgb(130, 213, 246), rgb(172, 221, 237));
   display: inline-block;
+  transition: box-shadow 0.3s ease;
 }
+
 h1:hover {
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  justify-content: top;
+  margin: 0px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+.reference {
+  position: absolute; /* sits on top of image */
+  top: 0; /* or adjust where you want it */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* for centering content */
+  flex-direction: column;
+  justify-content: top; /* vertical centering */
+  align-items: left; /* horizontal centering */
+  z-index: 10; /* above the image */
+  pointer-events: auto; /* optional: lets clicks pass through if needed */
+  color: white;
+  text-align: left;
+}
+
+.container {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  transform: scaleX(0%);
+  transform-origin: center left;
+  background: linear-gradient(to right, rgb(112, 193, 246), purple);
+  will-change: transform;
+  z-index: 3;
+}
+.image-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0px 0;
+  scroll-behavior: smooth;
+}
+.progress-counter {
+  position: fixed;
+  bottom: 1em;
+  right: 2.5em;
+  color: white;
+  z-index: 2;
+}
+.scroller {
+  position: relative;
+  width: 700vw;
+  height: 100svh;
+  display: flex;
+  will-change: transform;
+  transform: translateX(0);
+}
+
+section {
+  position: relative;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay {
+  position: absolute; /* sits on top of the image */
+  top: 0%; /* small offset from top */
+  left: 0%; /* small offset from left */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  color: white;
+  pointer-events: auto; /* ensures buttons are clickable */
+}
 .outer {
-  margin: 20px;
+  margin: 10px 10px;
   background: rgb(180, 221, 255);
   width: 1450px;
   border-radius: 25px;
-  height: 1000px;
+  min-height: 1000px;
+  padding: 10px;
+  box-sizing: border-box;
 }
-.img1 {
-  margin: 20px;
-  width: 175px;
-  height: 150px;
-  display: block;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-.img1:hover {
-  transform: translateY(-1.5px) scale(1.02);
-}
+
 p {
-  margin: 10px;
+  margin: 10px 5px;
   font-weight: bold;
-  font-family: "Monaco", monospace;
   font-size: 1.5em;
   color: palevioletred;
   padding: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(to top, plum, rgb(255, 255, 139));
-  display: inline-block;
   border-radius: 25px;
+  display: inline-block;
+  background: linear-gradient(to top, plum, rgb(255, 255, 139));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  z-index: 100;
+}
+a button {
+  z-index: 5;
 }
 p:hover {
   transform: translate(-1.5px) scale(1.002);
 }
-#start-btn{
-  color:rgb(158, 176, 161);
+
+#start-btn {
+  color: rgb(158, 176, 161);
   font-size: 1.3em;
   font-weight: bold;
-  font-family: 'Monaco', monospace;
   background: linear-gradient(to top, antiquewhite, white);
   border-radius: 5px;
   outline: none;
   border: none;
   margin: 6px 15px;
   padding: 10px;
-  display:block
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
-#start-btn:hover{
+
+#start-btn:hover {
   transform: translate(-1.5px) scale(1.002);
 }
+
 #resol {
   padding: 0;
+  margin: 20px 0;
 }
 
 .resolution-item {
   list-style: none;
   background: #fdd1d1;
-  margin: 12px 5px;
+  margin: 2px 2.5px;
   border-radius: 30px;
-
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  transition: transform 0.2s ease;
 }
+
+.resolution-item:hover {
+  transform: scale(1.01);
+}
+
 .resolution-input {
   width: 100%;
-  outline : none;
-  border : none;
+  outline: none;
+  border: none;
   padding: 10px;
   font-size: 16px;
-  font-family: 'Monaco', monospace;
   background: linear-gradient(to top, antiquewhite, white);
 }
+
 .actions {
   position: absolute;
   right: -120px;
@@ -94,6 +194,7 @@ p:hover {
   gap: 8px;
   transition: right 0.5s ease;
 }
+
 .resolution-item:hover .actions,
 .resolution-item.active .actions {
   right: 10px;
@@ -106,7 +207,7 @@ p:hover {
   cursor: pointer;
   background: #333;
   color: white;
-  transition: transform 0.1s ease, background 5s;
+  transition: transform 0.1s ease, background 0.3s ease;
 }
 
 .actions button:hover {
@@ -115,4 +216,9 @@ p:hover {
 
 .actions button:active {
   transform: scale(0.9);
+}
+
+.img1:hover {
+  transform: translateY(-1.5px) scale(1.02);
+  transition: transform 0.3s ease;
 }

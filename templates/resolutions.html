@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename = 'favicon.ico')}}"
+    />
+    <title>Resolutions</title>
+  </head>
+  <body>
+    <div class="outer">
+      <h1>Welcome to (Title)</h1>
+      <a href="{{url_for('home')}}">
+        <button>Go to Home</button>
+      </a>
+      <p>
+        Welcome to (Title), this will be the hub of all your resolutions and
+        goals
+      </p>
+
+      <button id="start-btn">Add Resolution</button>
+      <ul id="resol"></ul>
+    </div>
+  </body>
+</html>
