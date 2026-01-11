@@ -1,5 +1,5 @@
-html{
-   background-color: antiquewhite;
+html {
+  background-color: antiquewhite;
 }
 h1 {
   padding: 5px 15px;
@@ -43,6 +43,74 @@ p {
   display: inline-block;
   border-radius: 25px;
 }
-p:hover{
-   transform: translate(-1.5px) scale(1.002);
+p:hover {
+  transform: translate(-1.5px) scale(1.002);
+}
+#start-btn{
+  color:rgb(158, 176, 161);
+  font-size: 1.3em;
+  font-weight: bold;
+  font-family: 'Monaco', monospace;
+  background: linear-gradient(to top, antiquewhite, white);
+  border-radius: 5px;
+  margin: 6px 15px;
+  padding: 10px;
+  display:block
+}
+#start-btn:hover{
+  transform: translate(-1.5px) scale(1.002);
+}
+#resol {
+  padding: 0;
+}
+
+.resolution-item {
+  list-style: none;
+  background: #fdd1d1;
+  margin: 12px 5px;
+  border-radius: 30px;
+
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.resolution-input {
+  width: 100%;
+  outline : none;
+  border : none;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Monaco', monospace;
+  background: linear-gradient(to top, antiquewhite, white);
+}
+.actions {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  transition: right 0.5s ease;
+}
+.resolution-item:hover .actions,
+.resolution-item.active .actions {
+  right: 10px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  transition: transform 0.1s ease, background 5s;
+}
+
+.actions button:hover {
+  background: #555;
+}
+
+.actions button:active {
+  transform: scale(0.9);
 }
